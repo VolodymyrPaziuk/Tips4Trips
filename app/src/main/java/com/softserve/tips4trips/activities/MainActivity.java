@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
 
-    private static String USER_ID = "1";
+    private static String ACCOUNT_ID = "1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
             AccountProfileFragment fragment = new AccountProfileFragment();
 
             Bundle bundle = new Bundle();
-            bundle.putString(AccountProfileFragment.UID_KEY, USER_ID);
+            bundle.putString(AccountProfileFragment.UID_KEY, ACCOUNT_ID);
             fragment.setArguments(bundle);
 
             getSupportFragmentManager().beginTransaction()

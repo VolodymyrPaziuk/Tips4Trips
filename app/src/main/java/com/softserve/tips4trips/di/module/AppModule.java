@@ -45,7 +45,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    AccountRepository provideUserRepository(AccountWebservice webservice, AccountDao accountDao, Executor executor) {
+    AccountRepository provideAccountRepository(AccountWebservice webservice, AccountDao accountDao, Executor executor) {
         return new AccountRepository(webservice, accountDao, executor);
     }
 

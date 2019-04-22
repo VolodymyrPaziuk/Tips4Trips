@@ -9,11 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.softserve.tips4trips.R;
 import com.softserve.tips4trips.database.entities.Account;
 import com.softserve.tips4trips.view_models.AccountProfileViewModel;
@@ -29,7 +26,7 @@ import dagger.android.support.AndroidSupportInjection;
  */
 public class AccountProfileFragment extends Fragment {
 
-    // FOR DATA
+
     public static final String UID_KEY = "uid";
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -38,18 +35,18 @@ public class AccountProfileFragment extends Fragment {
 
     //@BindView(R.id.fragment_user_profile_image)
     //ImageView imageView;
-    @BindView(R.id.fragment_user_profile_username)
-    TextView username;
-    @BindView(R.id.fragment_user_profile_company)
+    @BindView(R.id.fragment_account_profile_username)
+    TextView accountName;
+    @BindView(R.id.fragment_account_profile_company)
     TextView company;
-    @BindView(R.id.fragment_user_profile_website)
+    @BindView(R.id.fragment_account_profile_website)
     TextView website;
 
     public AccountProfileFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.account_user_profile, container, false);
+        View view = inflater.inflate(R.layout.account_profile, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -67,17 +64,17 @@ public class AccountProfileFragment extends Fragment {
     }
 
     private void configureViewModel(){
-        String userLogin = getArguments().getString(UID_KEY);
+        String accountLogin = getArguments().getString(UID_KEY);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(AccountProfileViewModel.class);
-        viewModel.init(userLogin);
-        viewModel.getaccount().observe(this, user -> updateUI(user));
+        viewModel.init(accountLogin);
+        viewModel.getaccount().observe(this, account -> updateUI(account));
     }
 
 
     private void updateUI(@Nullable Account account){
         if (account != null){
            // Glide.with(this).load(account.getAvatar_url()).apply(RequestOptions.circleCropTransform()).into(imageView);
-            this.username.setText(account.getFirstName());
+            this.accountName.setText(account.getFirstName());
             this.company.setText(account.getLastName());
             this.website.setText(account.getAbout());
         }

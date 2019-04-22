@@ -40,16 +40,16 @@ public class AccountRepository {
 
 
     public LiveData<Account> getAccount(String accountId) {
-        refreshUser(accountId);
+        refreshAccount(accountId);
         return accountDao.load(accountId);
     }
 
-    private void refreshUser(final String accountId) {
+    private void refreshAccount(final String accountId) {
         executor.execute(() -> {
-            // Check if user was fetched recently
-            boolean userExists = (accountDao.hasAccount(accountId, getMaxRefreshTime(new Date())) != null);
+            // Check if account was fetched recently
+            boolean accountExists = (accountDao.hasAccount(accountId, getMaxRefreshTime(new Date())) != null);
             // If account have to be updated
-            if (!userExists) {
+            if (!accountExists) {
                 webservice.getAccount(accountId).enqueue(new Callback<Account>() {
                     @Override
                     public void onResponse(Call<Account> call, Response<Account> response) {
