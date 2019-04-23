@@ -33,20 +33,20 @@ public class AccountProfileFragment extends Fragment {
     private AccountProfileViewModel viewModel;
 
 
-    //@BindView(R.id.fragment_user_profile_image)
+    //@BindView(R.id.fragment_account_profile_image)
     //ImageView imageView;
-    @BindView(R.id.fragment_account_profile_username)
+    @BindView(R.id.account_name)
     TextView accountName;
-    @BindView(R.id.fragment_account_profile_company)
-    TextView company;
-    @BindView(R.id.fragment_account_profile_website)
-    TextView website;
+    @BindView(R.id.account_address)
+    TextView address;
+    @BindView(R.id.view_profile_phone_number)
+    TextView phoneNumber;
 
     public AccountProfileFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.account_profile, container, false);
+        View view = inflater.inflate(R.layout.view_profile, container, false);
         ButterKnife.bind(this, view);
         return view;
     }
@@ -75,8 +75,8 @@ public class AccountProfileFragment extends Fragment {
         if (account != null){
            // Glide.with(this).load(account.getAvatar_url()).apply(RequestOptions.circleCropTransform()).into(imageView);
             this.accountName.setText(account.getFirstName());
-            this.company.setText(account.getLastName());
-            this.website.setText(account.getAbout());
+            this.address.setText(account.getLastName());
+            this.phoneNumber.setText(account.getPhoneNumber());
         }
     }
 }

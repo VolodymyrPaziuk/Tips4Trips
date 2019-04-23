@@ -22,6 +22,6 @@ public interface AccountDao {
     @Query("SELECT * FROM account WHERE id = :accountId")
     LiveData<Account> load(String accountId);
 
-    @Query("SELECT * FROM account WHERE id = :accountId AND lastRefresh > :lastRefreshMax LIMIT 1")
+    @Query("SELECT * FROM account WHERE id = :accountId AND lastRefresh > :lastRefreshMax")
     Account hasAccount(String accountId, Date lastRefreshMax);
 }

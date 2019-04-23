@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin</string>
+
+    <string name="lorem_ipsum_long">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vehicula nisl arcu, in dictum neque semper in. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        \n\nPhasellus ac iaculis enim. Donec mattis sagittis mi, eget luctus mi convallis nec. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur dapibus urna eget tellus laoreet mollis. In hac habitasse platea dictumst. Praesent non elit eu lacus faucibus lacinia ac id erat. Mauris dictum vehicula est ut condimentum.
+    </string>
+
+</resources>

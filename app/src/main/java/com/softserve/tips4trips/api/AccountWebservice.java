@@ -8,8 +8,6 @@ import retrofit2.http.Path;
 
 public interface AccountWebservice {
 
-
-
     @GET("/accounts/{account}")
     Call<Account> getAccount(@Path("account") String accountId);
 }
